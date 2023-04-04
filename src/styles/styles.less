@@ -4,12 +4,22 @@
 
 #app-root-2023-benin_companies .app {
   font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 20px auto;
+  max-width: 700px;
+  h3 {
+    color: #000;
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    line-height: 34px;
+  }
   .table {
     border-collapse: collapse;
     border-spacing: 0;
     border: 1px solid #000;
     font-family: Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
-    max-width: 700px;
+    font-size: 16px;
+    margin-bottom: 5px;
     opacity: 0;
     transition-duration: 500ms;
     transition-property: opacity;
@@ -34,19 +44,20 @@
         }
         &.percentage {
           span {
-            display: inline-block;
-
-          &:after {
-
-          color: #72bf44;
-    content: "\25B2";
-    font-size: 20px;
-    text-shadow: 1px 1px 1px #cee3a0;
-          }
+          display: inline-block;
+            &:after {
+              color: @unblue;
+              content: "\25B2";
+              font-size: 20px;
+            }
           }
         }
       }
     }
+  }
+  figcaption {
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 14px;
   }
 }
 

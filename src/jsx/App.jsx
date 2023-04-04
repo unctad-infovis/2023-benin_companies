@@ -21,7 +21,7 @@ function App() {
   const isVisible = useIsVisible(chartRef, { once: true });
 
   useEffect(() => {
-    const data_file = (window.location.href.includes('unctad.org')) ? '/sites/default/files/data-file/2023-benin_companies.json' : './assets/data/data.json';
+    const data_file = (window.location.href.includes('unctad.org')) ? 'https://storage.unctad.org/2023-benin_companies/assets/data/2023-benin_companies.json' : './assets/data/data.json';
     try {
       fetch(data_file)
         .then((response) => {
@@ -48,16 +48,18 @@ function App() {
     <div className="app">
       <div ref={chartRef}>
         {(isVisible) && (
-          <table className="table">
-            <thead>
-              <tr>
+          <>
+            <h3>Young people drive new businesses in Benin</h3>
+            <table className="table">
+              <thead>
+                <tr>
+                  {
+                    data && data.head.map((el, i) => <th key={el} className={(i > 0) ? 'number' : ''}>{el}</th>)
+                  }
+                </tr>
+              </thead>
+              <tbody>
                 {
-                data && data.head.map((el, i) => <th key={el} className={(i > 0) ? 'number' : ''}>{el}</th>)
-              }
-              </tr>
-            </thead>
-            <tbody>
-              {
                 data && data.body.map(el => (
                   <tr key={el[0]}>
                     <td>{el[0]}</td>
@@ -77,8 +79,14 @@ function App() {
                   </tr>
                 ))
               }
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+            <figcaption>
+              <em>Source:</em>
+              {' '}
+              UNCTAD
+            </figcaption>
+          </>
         )}
       </div>
       <noscript>Your browser does not support JavaScript!</noscript>
