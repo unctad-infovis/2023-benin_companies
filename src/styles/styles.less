@@ -1,0 +1,53 @@
+//@import url('https://fonts.googleapis.com/css?family=Roboto+Serif:600.css');
+
+@import 'colors.less';
+
+#app-root-2023-benin_companies .app {
+  font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  .table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #000;
+    font-family: Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
+    max-width: 700px;
+    opacity: 0;
+    transition-duration: 500ms;
+    transition-property: opacity;
+    width: 100%;
+    tr {
+      margin: 0;
+      padding: 0;
+      th {
+        border: 1.5px solid #333;
+      }
+      td {
+        border-bottom: 1px solid #666;
+        border-left: 1px solid #666;
+      }
+      th,
+      td {
+        margin: 0;
+        padding: 7px 10px;
+        text-align: left;
+        &.number {
+          text-align: right;
+        }
+        &.percentage {
+          span {
+            display: inline-block;
+
+          &:after {
+
+          color: #72bf44;
+    content: "\25B2";
+    font-size: 20px;
+    text-shadow: 1px 1px 1px #cee3a0;
+          }
+          }
+        }
+      }
+    }
+  }
+}
+
+@import 'basics.less';
