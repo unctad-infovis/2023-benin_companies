@@ -1,8 +1,30 @@
 {
-  "body":[
+  "body":{
+    "en":[
       ["Total new businesses", 27379, 56579, 107],
       ["Founded by women", 8936, 18764, 110],
       ["Founded by age 18–30", 7460, 23312, 212]
-  ],
-  "head":["","2019", "2022", "2019–2022"]
+    ],
+    "fr":[
+      ["Nombre total de nouvelles entreprises", 27379, 56579, 107],
+      ["Créées par des femmes", 8936, 18764, 110],
+      ["Créées par des jeunes de 18 à 30 ans", 7460, 23312, 212]
+    ],
+    "es":[
+      ["Total de nuevas empresas", 27379, 56579, 107],
+      ["Fundadas por mujeres", 8936, 18764, 110],
+      ["Fundadas por 18-30 años", 7460, 23312, 212]
+    ]
+  },
+  "head":["","2019", "2022", "2019–2022"],
+  "source":{
+    "en":"Source: UNCTAD",
+    "fr":"Source: CNUCED",
+    "es":"Fuente: UNCTAD"
+  },
+  "title":{
+    "en":"Young people drive new businesses in Benin",
+    "fr":"Les jeunes sont à l'origine de nouvelles entreprises au Bénin",
+    "es":"Los jóvenes impulsan nuevas empresas en Benín"
+  }
 }

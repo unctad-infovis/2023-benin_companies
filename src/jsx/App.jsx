@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../styles/styles.less';
+import PropTypes from 'prop-types';
 
 // const appID = '#app-root-2023-benin_companies';
 
@@ -14,14 +15,14 @@ import formatNr from './helpers/FormatNr.js';
 import easingFn from './helpers/EasingFn.js';
 // import roundNr from './helpers/RoundNr.js';
 
-function App() {
+function App({ lang }) {
   // Data states.
   const [data, setData] = useState(false);
   const chartRef = useRef();
   const isVisible = useIsVisible(chartRef, { once: true });
 
   useEffect(() => {
-    const data_file = (window.location.href.includes('unctad.org')) ? 'https://storage.unctad.org/2023-benin_companies/assets/data/2023-benin_companies.json' : './assets/data/data.json';
+    const data_file = (window.location.href.includes('unctad.org')) ? 'https://storage.unctad.org/2023-benin_companies/assets/data/2023-benin_companies.json' : './assets/data/2023-benin_companies.json';
     try {
       fetch(data_file)
         .then((response) => {
@@ -49,7 +50,7 @@ function App() {
       <div ref={chartRef}>
         {(isVisible) && (
           <>
-            <h3>Young people drive new businesses in Benin</h3>
+            <h3>{data && data.title[lang]}</h3>
             <table className="table">
               <thead>
                 <tr>
@@ -60,7 +61,7 @@ function App() {
               </thead>
               <tbody>
                 {
-                data && data.body.map(el => (
+                data && data.body[lang].map(el => (
                   <tr key={el[0]}>
                     <td>{el[0]}</td>
                     <td className="number">{formatNr(el[1], ' ')}</td>
@@ -82,9 +83,7 @@ function App() {
               </tbody>
             </table>
             <figcaption>
-              <em>Source:</em>
-              {' '}
-              UNCTAD
+              {data && data.source[lang]}
             </figcaption>
           </>
         )}
@@ -93,5 +92,13 @@ function App() {
     </div>
   );
 }
+
+App.propTypes = {
+  lang: PropTypes.string
+};
+
+App.defaultProps = {
+  lang: 'en'
+};
 
 export default App;
