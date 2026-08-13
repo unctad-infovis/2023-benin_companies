@@ -15,7 +15,7 @@ import formatNr from './helpers/FormatNr.js';
 import easingFn from './helpers/EasingFn.js';
 // import roundNr from './helpers/RoundNr.js';
 
-function App({ lang }) {
+function App({ lang = 'en' }) {
   // Data states.
   const [data, setData] = useState(false);
   const chartRef = useRef();
@@ -95,10 +95,6 @@ function App({ lang }) {
 
 App.propTypes = {
   lang: PropTypes.string
-};
-
-App.defaultProps = {
-  lang: 'en'
 };
 
 export default App;
